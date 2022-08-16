@@ -9,6 +9,7 @@ public abstract class BaseDisc {
     private int capacity;
     public ArrayList<String> contents = new ArrayList<>();
 
+    private int usedCapacity = 0;
     private int remainingCapacity;
     public BaseDisc(String name, String discType, int capacity) {
         this.name = name;
@@ -43,10 +44,19 @@ public abstract class BaseDisc {
 
     public void addContents(String item){
         contents.add(item);
-        capacity--;
-        remainingCapacity = capacity;
+        usedCapacity = contents.size();
+        calculateRemainingCapacity();
+//        capacity--;
+//        remainingCapacity = capacity;
+    }
+    public int getUsedCapacity(){
+        return usedCapacity;
     }
 
+    public int calculateRemainingCapacity(){
+        remainingCapacity = capacity - usedCapacity;
+        return remainingCapacity;
+    }
     public int getRemainingCapacity(){
         return remainingCapacity;
     }
@@ -56,6 +66,11 @@ public abstract class BaseDisc {
 
     @Override
     public String toString() {
-        return "This disc, " + name + ", has a ";
+        return "Name: " + name + "\n"
+                + "Capacity: " + capacity + "\n"
+                + "Contents: " + contents.toString() + "\n"
+                + "Used Capacity: " + usedCapacity + "\n"
+                + "Remaining Capacity: " + remainingCapacity + "\n";
+
     }
 }
