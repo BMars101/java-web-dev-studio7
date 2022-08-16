@@ -1,7 +1,5 @@
 package org.launchcode.studio7;
 
-import java.util.ArrayList;
-
 public class CD extends BaseDisc implements OpticalDisc{
     public CD(String name, String discType, int capacity) {
         super(name, discType, capacity);

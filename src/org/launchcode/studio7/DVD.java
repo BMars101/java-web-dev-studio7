@@ -1,7 +1,5 @@
 package org.launchcode.studio7;
 
-import java.util.ArrayList;
-
 public class DVD extends BaseDisc implements OpticalDisc{
     public DVD(String name, String discType, int capacity) {
         super(name, discType, capacity);
